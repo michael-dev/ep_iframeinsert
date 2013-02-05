@@ -5,5 +5,5 @@ This is useful if the pad is in an iframe and the outer management software (e.g
 
 # Usage
 
-$('#etherpadiframe').postMessage("string to be inserted", "*");
+jQuery('#etherpadiframe').contentWindow.postMessage("string to be inserted", "*");
 
