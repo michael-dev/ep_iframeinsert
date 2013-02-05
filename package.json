@@ -1,0 +1,17 @@
+{
+  "name": "ep_iframeinsert",
+  "description": "A plugin to trigger inserts using parent windows javascript",
+  "version": "0.0.1",
+  "author": {
+    "name": "mbraun",
+    "email": "michael-dev@fami-braun.de",
+    "url": "https://github.com/michael-dev/ep_iframeinsert"
+  },
+  "contributors": [],
+  "dependencies": {},
+  "engines": {
+    "node": ">= 0.4.1"
+  },
+  "_id": "ep_iframeinsert@0.0.1",
+  "_from": "ep_iframeinsert"
+}

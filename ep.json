@@ -1,0 +1,11 @@
+{
+  "parts":[
+    {
+      "name": "iframeinsert-plugin",
+      "hooks": {},
+      "client_hooks": {
+        "aceInitialized": "ep_iframeinsert/static/js/pad"
+      }
+    }
+  ]
+}
