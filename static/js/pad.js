@@ -1,6 +1,7 @@
 function iframeinsertReceiveMessage(event)
 {
-//  self.ChildAccessibleAce2Editor.registry[1].editor.replaceRange(undefined,undefined,event.data); 
+  if (event.source != parent)
+    return;
   self.editorInfo.ace_replaceRange(undefined, undefined, event.data);
 };
 
