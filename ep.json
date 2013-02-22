@@ -4,7 +4,8 @@
       "name": "iframeinsert-plugin",
       "hooks": {},
       "client_hooks": {
-        "aceInitialized": "ep_iframeinsert/static/js/pad"
+        "aceInitialized": "ep_iframeinsert/static/js/pad:aceInitialized",
+        "documentReady": "ep_iframeinsert/static/js/pad:disableLists"
       }
     }
   ]
