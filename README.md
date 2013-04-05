@@ -1,9 +1,50 @@
-# Description
+ep\_iframeinsert
+================
 
-This plugin listens for messages on the pad frame/window and inserts them (possibly replacing the currently selected text).
-This is useful if the pad is in an iframe and the outer management software (e.g. dokuwiki) has stuff like templates to insert. The management action (e.g. templates) shall not be implemented in etherpad lite, as the management software can be run with any other editor (i.e. no etherpad).
+This plugin receives edit commands from the parent window and executes them on the pad. It is used by
+https://github.com/michael-dev/dokuwikietherpadlite to send the toolbar actions to the pad without reimplementing every possible action.
 
-# Usage
+How it works
+------------
 
-jQuery('#etherpadiframe').contentWindow.postMessage("string to be inserted", "*");
+This plugin listens for messages on the pad frame/window and executes them. Further, it periodically sends messages to the parent window to indicate its existence and hides the markup buttons in the etherpad lite toolbar.
+
+Messages implemented
+--------------------
+
+All messages need to be of type Object.
+The func attribute describes the method called.
+
+### func = none ###
+
+Send periodically to the parent window with attributes context = ep\_iframeinsert and data = the current pad text. The parent will update its pad text cache and learn that this plugin is running.
+
+### func = insertTagsLn ###
+
+Message has data attribute (Object), which has the attributes tagOpen, tagClose and sampleText. This action will put tagOpen before and tagClose after each line of selection. If the selection is empty, sampleText is used instead.
+
+### func = insertTags ###
+
+Message has data attribute (Object), which has the attributes tagOpen, tagClose, sampleText and trimSpace. This action will put tagOpen before and tagClose after the selection. If the selection is empty, sampleText is used instead. trimSpaces trims spaces from the start+end.
+
+### func = insert ###
+
+Message has data attribute (Object), which has attribute text. This action replaces the current selection (which can be empty) with the given text.
+
+Usage
+-----
+
+jQuery('#etherpadiframe').contentWindow.postMessage({"func": "insert", "data": { "text" : "hallo welt"}}, "*");
+
+----
+Copyright (C) Michael Braun <michael-dev@fami-braun.de>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; version 2 of the License
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
