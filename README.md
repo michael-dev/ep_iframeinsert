@@ -34,7 +34,12 @@ Message has data attribute (Object), which has attribute text. This action repla
 Usage
 -----
 
-jQuery('#etherpadiframe').contentWindow.postMessage({"func": "insert", "data": { "text" : "hallo welt"}}, "*");
+jQuery('#etherpadiframe').contentWindow.postMessage({"func": "insert", "data": { "text" : "hallo welt"}}, "\*");
+
+Installation
+------------
+
+See etherpad lite documentation on how to install this plugin. There is no plugin configuration.
 
 ----
 Copyright (C) Michael Braun <michael-dev@fami-braun.de>
