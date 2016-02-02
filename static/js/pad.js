@@ -115,13 +115,14 @@ exports.aceInitialized = function(hook, context){
 }
 
 exports.disableLists = function() {
-  $('#oderedlist').hide();
-  $('#unoderedlist').hide();
-  $('#indent').hide();
-  $('#outdent').hide();
-  $('#bold').hide();
-  $('#italic').hide();
-  $('#underline').hide();
-  $('#strikethrough').hide();
+  $('[data-key="insertorderedlist"]').hide();
+  $('[data-key="insertunorderedlist"]').hide();
+  $('[data-key="indent"]').hide();
+  $('[data-key="outdent"]').hide();
+  $('[data-key="bold"]').hide();
+  $('[data-key="italic"]').hide();
+  $('[data-key="underline"]').hide();
+  $('[data-key="strikethrough"]').hide();
+
   return;
 }
